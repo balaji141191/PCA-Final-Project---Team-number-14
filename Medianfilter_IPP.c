@@ -36,11 +36,11 @@ for(i=1;i<10;i++)//for loop to the change the data size
 	IppiSize imgSize = {x,x};
 	IppiSize maskSize = {3, 3};// max size to perform median filtering	
 	int k;
-	for(k=0;k<count;k++)//loop to randomly allocate value for the input image
-	{
+	//for(k=0;k<count;k++)//loop to randomly allocate value for the input image
+	//{
 		//src[k]=(rand()/255);
 		ippiSet_8u_C4R( (rand()/255), src, x, imgSize);
-	}
+	//}
 	int j;
 	start=timerval();
 	for (j=0;j<1000;j++)//running the code 1000 times to avoid delays
