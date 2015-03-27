@@ -38,7 +38,7 @@ for(i=2;i<10;i++)//for loop to the change the data size
 	int k;
 	for(k=0;k<count;k++)//loop to randomly allocate value for the input image
 	{
-		src[k]=(rand()/255);
+		src[k]=(rand()%255);
 		//ippiSet_8u_C4R( (rand()/255), src, x, imgSize);
 	}
 	int j;
