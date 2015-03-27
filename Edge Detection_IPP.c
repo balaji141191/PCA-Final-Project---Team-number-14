@@ -24,7 +24,7 @@ int main()
 {
 int i,j,k,n; //declaring variables
 
-    for(i=1;i<10;i++)//loop for changing the input data size
+    for(i=3;i<20;i++)//loop for changing the input data size
     {
 	double start = 0; //variables for time estimation
 	double stop = 0;
@@ -59,7 +59,7 @@ int i,j,k,n; //declaring variables
 
         for(k=0;k<(n*n);k++)//loop to allocate random value for input image
 	    {
-		ippiSet_8u16s_C1R((rand()/255), pSrc, n, imgSize);
+		pSrc[k] = rand()%255;
 	    }
 
         start=timerval();//start the timer
