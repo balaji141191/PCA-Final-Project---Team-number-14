@@ -71,32 +71,26 @@ int main()
 	int info;
 	char uplo = 'L';
 	
-	double *A = (double *)( mkl_malloc((n*n) * sizeof(double),64));
-	double *P = (double *)( mkl_malloc((n*n) * sizeof(double),64));	
-	
 	for(i=1; i<12; i++) 
 	{
 		n = pow(2, i);
+		double *A = (double *)(mkl_malloc((n*n) * sizeof(double),64));
+		double *P = (double *)(mkl_malloc((n*n) * sizeof(double),64));	
+		
 		initialize(n, A, P); //function call to initialize matrix
 		mkl_set_num_threads(240);
 		
-		startTime = timerval();
+		startTime = timerval(); //start clock
 		for(l=0;l<1000;l++) //Running the code 1000 times
 		{
-		
-			//calling the mkl routine to perform cholesky decomposition
-			info = LAPACKE_spotrf(LAPACK_ROW_MAJOR, uplo, n, P, n);
-			if(info != 0)
-			{
-				printf("\n Cholesky factorization failed \n");
-			        mkl_free(P);
-            			return 0;
-			}
-			mkl_free(P);		
+			info = LAPACKE_spotrf(LAPACK_ROW_MAJOR, uplo, n, P, n); //calling the mkl routine to perform cholesky decomposition
 		} 
-		endTime = timerval();
+		endTime = timerval(); //stop clock
+		
 		freopen("cholesky.txt","a",stdout);
-		printf("\n The parallel computation time for %d order matrix is : %f \n", n, ((endTime - startTime)/1000)); /*Printing the average time*/		
+		printf("\n The parallel computation time for %d order matrix is : %f \n", n, ((endTime - startTime)/1000)); //Printing the average time		
+		mkl_free(P);
+		mkl_free(A);
 	}
 	return 0;
 }

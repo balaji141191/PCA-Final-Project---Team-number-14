@@ -66,32 +66,28 @@ int main()
 	int info;
 	char uplo = 'L';
 	
-	double *A = (double *)( mkl_malloc((n*n) * sizeof(double),64));
-	double *B = (double *)( mkl_malloc((n*n) * sizeof(double),64));	
-	
 	for(i=1; i<12; i++) 
 	{
 		n = pow(2, i);
+	
+		double *A = (double *)( mkl_malloc((n*n) * sizeof(double),64));
+		double *B = (double *)( mkl_malloc((n*n) * sizeof(double),64));
+		
 		init(n, A, B); //initialize matrix function call
-
+		int M[n];
 		mkl_set_num_threads(240);		
 		startTime = timerval();
 		for(j=0; j<1000; j++)	//Running the code 1000 times
 		{
 			
-			int M[n];
 			info = LAPACKE_dsytrf(LAPACK_ROW_MAJOR, uplo, n, B, n, M); //mkl routine call to perform LDL decomposition
-			if(info != 0)
-			{
-				printf("\n LDL decomposition failed \n");
-			        mkl_free(B);
-            			return 0;
-			}	
-		mkl_free(B);	
+						
 		} 
 		endTime = timerval();
 		freopen("ldl_results.txt","a",stdout);
-		printf("\n The parallel computation time for %d order matrix is : %f \n", n, ((endTime - startTime)/1000)); //Print the execution time 		
+		printf("\n The computation time for %d order matrix is : %f \n", n, ((endTime - startTime)/1000)); //Print the execution time 		
+		mkl_free(B);
+		mkl_free(A);
 		return 0;		
 	}
 }

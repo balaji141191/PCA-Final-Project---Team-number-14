@@ -72,12 +72,11 @@ int main()
    	double totalTime = 0;
 	int i, l, n;
 
-	double *A = (double*)malloc(sizeof(double)*n*n);
-	double *P = (double*)malloc(sizeof(double)*n*n);	
-	
 	for(i=1; i<12; i++) 
 	{
 		n = pow(2, i);
+		double *A = (double*)malloc(sizeof(double)*n*n);
+		double *P = (double*)malloc(sizeof(double)*n*n);
 		initialize(n, A, P); //function call to initialize matrix
 
 		//Source matrix parameters
@@ -106,6 +105,8 @@ int main()
 		endTime = timerval(); //Stop clock
 		freopen("cholesky.txt","a",stdout);
 		printf("\n The parallel computation time for %d order matrix of is : %f \n", n, ((endTime - startTime)/1000)); /*Printing the average time*/		
+		mkl_free(P);
+		mkl_free(A);		
 	}
 	return 0;
 }
