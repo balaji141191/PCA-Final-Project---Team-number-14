@@ -1,0 +1,23 @@
+ The parallel computation time for 2 order matrix is : 0.000008
+
+ The parallel computation time for 4 order matrix is : 0.000009
+
+ The parallel computation time for 8 order matrix is : 0.000011
+
+ The parallel computation time for 16 order matrix is : 0.000018
+
+ The parallel computation time for 32 order matrix is : 0.000039
+
+ The parallel computation time for 64 order matrix is : 0.000227
+
+ The parallel computation time for 128 order matrix is : 0.002913
+
+ The parallel computation time for 256 order matrix is : 0.015050
+
+ The parallel computation time for 512 order matrix is : 0.117301
+
+ The parallel computation time for 1024 order matrix is : 0.483725
+
+ The parallel computation time for 2048 order matrix is : 1.797452
+
+ The parallel computation time for 4096 order matrix is : 7.145354
