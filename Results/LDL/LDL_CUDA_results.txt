@@ -1,0 +1,23 @@
+ The computation time for 2 order matrix is : 0.000082
+
+ The computation time for 4 order matrix is : 0.000141
+
+ The computation time for 8 order matrix is : 0.000271
+
+ The computation time for 16 order matrix is : 0.000575
+
+ The computation time for 32 order matrix is : 0.001308
+
+ The computation time for 64 order matrix is : 0.003422
+
+ The computation time for 128 order matrix is : 0.006108
+
+ The computation time for 256 order matrix is : 0.010935
+
+ The computation time for 512 order matrix is : 0.022770
+
+ The computation time for 1024 order matrix is : 0.046376
+
+ The computation time for 2048 order matrix is : 0.099820
+
+ The computation time for 4096 order matrix is : 0.236581

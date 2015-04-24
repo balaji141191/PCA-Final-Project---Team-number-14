@@ -1,0 +1,10 @@
+ the computation time for 8 * 8 input size is : 0.000856
+ the computation time for 16 * 16 input size is : 0.000551
+ the computation time for 32 * 32 input size is : 0.000579
+ the computation time for 64 * 64 input size is : 0.000559
+ the computation time for 128 * 128 input size is : 0.000600
+ the computation time for 256 * 256 input size is : 0.000630
+ the computation time for 512 * 512 input size is : 0.000769
+ the computation time for 1024 * 1024 input size is : 0.001344
+ the computation time for 2048 * 2048 input size is : 0.003587
+ the computation time for 4096 * 4096 input size is : 0.012341
